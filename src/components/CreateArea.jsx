@@ -20,11 +20,12 @@ function CreateArea({ onAdd }) {
     function submitNote(event) {
         onAdd(note)
 
-        event.preventDefault()
         setNote({
             title: '',
             content: ''
         })
+
+        event.preventDefault()
     }
 
     return (
