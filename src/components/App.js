@@ -7,9 +7,9 @@ import CreateArea from './CreateArea'
 function App() {
     const [notes, setNotes] = useState([])
 
-    function addNote(note) {
+    function addNote(newNote) {
         setNotes(prevNotes => {
-            return [...prevNotes, note]
+            return [...prevNotes, newNote]
         })
     }
 
@@ -17,7 +17,15 @@ function App() {
         <div>
             <Header />
             <CreateArea onAdd={addNote} />
-            <Note key={1} title='Note title' content='Note content' />
+            {notes.map(note => {
+                return (
+                    <Note
+                        key={1}
+                        title={note.title}
+                        content={note.content}
+                    />
+                )
+            })}
             <Footer />
         </div>
     )
